@@ -44,7 +44,7 @@ class CellTest < Minitest::Test
     cell = Cell.new("B4")
 
     assert_equal "B4", cell.coordinate
-    assert_equal nil, cell.ship
+    assert_nil cell.ship
 
   end
 
@@ -54,10 +54,16 @@ class CellTest < Minitest::Test
     assert_equal true, cell.empty?
   end
 
-  def test_place_ship
+  def test_place_ship_in_empty_cell
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
 
+    assert_nil cell.ship
 
-    assert_equal dsfsd, cell.place_ship
+    cell.place_ship(cruiser)
+
+    assert_equal cruiser, cell.ship
+    assert_equal false, cell.empty?
   end
 
 end
