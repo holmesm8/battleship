@@ -66,4 +66,43 @@ class CellTest < Minitest::Test
     assert_equal false, cell.empty?
   end
 
+  def test_it_can_be_fired_upon
+    cell = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+
+    assert_equal false, cell.fired_upon?
+
+    cell.place_ship(cruiser)
+    cell.fire_upon
+
+    assert cell.fired_upon?
+    assert_equal 2, cell.ship.health
+
+  end
+
+  def test_it_can_render_every_option
+    cell_1 = Cell.new("B4")
+    cruiser = Ship.new("Cruiser", 3)
+
+    assert_equal ".", cell_1.render
+
+    cell_1.fire_upon
+
+    assert_equal "M", cell_1.render
+
+    cell_1.place_ship(cruiser)
+    cell_1.fire_upon
+
+    assert_equal "H", cell_1.render
+
+    cell_1.fire_upon
+
+    refute cruiser.sunk?
+
+    cell_1.fire_upon
+  
+    assert_equal "X", cell_1.render
+
+  end
+
 end
