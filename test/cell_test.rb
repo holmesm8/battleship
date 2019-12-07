@@ -83,26 +83,19 @@ class CellTest < Minitest::Test
   def test_it_can_render_every_option
     cell_1 = Cell.new("B4")
     cruiser = Ship.new("Cruiser", 3)
+    cell_2 = Cell.new("C3")
 
     assert_equal ".", cell_1.render
-
     cell_1.fire_upon
-
     assert_equal "M", cell_1.render
-
-    cell_1.place_ship(cruiser)
-    cell_1.fire_upon
-
-    assert_equal "H", cell_1.render
-
-    cell_1.fire_upon
-
+    cell_2.place_ship(cruiser)
+    assert_equal "S", cell_2.render(true)
+    cell_2.fire_upon
+    assert_equal "H", cell_2.render(true)
+    cell_2.fire_upon
     refute cruiser.sunk?
-
-    cell_1.fire_upon
-  
-    assert_equal "X", cell_1.render
-
+    cell_2.fire_upon
+    assert_equal "X", cell_2.render(true)
   end
 
 end

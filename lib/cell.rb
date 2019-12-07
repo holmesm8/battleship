@@ -20,36 +20,27 @@ class Cell
   end
 
   def fired_upon?
-    return @fired_upon
+    @fired_upon
   end
 
   def fire_upon
-    if @ship == nil
-      @fired_upon = true
-    else
+    @fired_upon = true
+    if @ship != nil
       @ship.hit
-      @fired_upon = true
     end
   end
 
-  def render
-    if fired_upon? == false
-      return "."
-    elsif fired_upon? == true && @ship == nil
-      return "M"
-    elsif fired_upon? == true && @ship != nil && @ship.health > 0
-      return "H"
-    else fired_upon? == true && @ship.health == 0
-      return "X"
+  def render(ship = false)
+    if fired_upon? && empty?
+      "M"
+    elsif ship && !fired_upon?
+      "S"
+    elsif fired_upon? && !empty? && !@ship.sunk?
+      "H"
+    elsif fired_upon? && !empty? && @ship.sunk?
+      "X"
+    else empty?
+      "."
     end
   end
-
 end
-
-
-
-
-# if @s== nil
-#   return "."
-# else
-#   false
