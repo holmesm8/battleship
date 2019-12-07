@@ -84,23 +84,5 @@ class Board
       "B #{["B1", "B2", "B3", "B4"].map { |coords| @cells[coords].render(ship)}.join(" ")} \n" +
       "C #{["C1", "C2", "C3", "C4"].map { |coords| @cells[coords].render(ship)}.join(" ")} \n" +
       "D #{["D1", "D2", "D3", "D4"].map { |coords| @cells[coords].render(ship)}.join(" ")} \n"
-
-
-    #
-    # "  1 2 3 4 \n" +
-    # "A . . . . \n" +
-    # "B . . . . \n" +
-    # "C . . . . \n" +
-    # "D . . . . \n"
-
-
   end
 end
-
-
-# letters = []
-# coordinates_array.map { |coord| letters << coord[0] == coordinates_array[0][0]}
-# testy2 = letters.each_cons(2).all? {|a, b| b == a + 1 }
-#
-# coordinates_array.all? { |coord| coord[-1] == coordinates_array[0][-1]}
-# coordinates_array.all? { |coord| coord[0] == coordinates_array[0][0]}
