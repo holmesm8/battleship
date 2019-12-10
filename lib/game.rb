@@ -27,17 +27,3 @@ class Game
     @computer_board.place(@submarine_computer, coordinates)
   end
 end
-
-# def start_game
-#   "Welcome to BATTLESHIP\n" +
-#   "Enter p to play. Enter q to quit.\n"
-#   choice = gets.chomp
-#
-#   if choice.to_s.downcase == "p"
-#    "Ready"
-#   elsif choice.to_s.downcase == "q"
-#    "Goodbye"
-#   else
-#    "Invalid entry. Enter p to play. Enter q to quit."
-#   end
-# end
