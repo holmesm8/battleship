@@ -22,6 +22,18 @@ class GameTest < Minitest::Test
     assert_instance_of Game, @game
   end
 
+  def test_it_starts
+    assert @game.welcome
+    assert @game.user_place_ships(@crusier_player.length)
+
+  end
+
+#   def test_user_can_place_ships
+#     assert @game.user_place_ships(@submarine_player.length)
+# require "pry"; binding.pry
+
+
+
   # def test_it_has_attributes
   #   assert_equal @computer_board = Board.new
   #   assert_equal @player_board = Board.new
@@ -33,12 +45,14 @@ class GameTest < Minitest::Test
 
 
 
-  def test_computer_can_randomly_pick_coordinates
-    @game.place_computer_ships
+  # def test_computer_can_randomly_pick_coordinates
+  #   @game.place_computer_ships
+  #
+  #   assert_equal 3, @computer_board.render(true)
+  #   # assert @computer_board.cells.ship.include?(@submarine_computer)
+  #   # assert @computer_board!!!.cells.ship.include?(@cruiser_computer)
+  # end
 
-    assert_equal 3, @computer_board.render(true)
-    # assert @computer_board.cells.ship.include?(@submarine_computer)
-    # assert @computer_board!!!.cells.ship.include?(@cruiser_computer)
-  end
+
 
 end
