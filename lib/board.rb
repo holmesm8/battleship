@@ -27,7 +27,8 @@ class Board
   end
 
   def valid_placement?(ship, coordinates_array)
-    unless cell_unoccupied?(ship, coordinates_array) && coordinates_ship_length(ship, coordinates_array)
+
+    if !cell_unoccupied?(ship, coordinates_array) && !coordinates_ship_length(ship, coordinates_array)
       return false
     end
     if consecutive_letters?(ship, coordinates_array) && same_numbers?(ship, coordinates_array)
