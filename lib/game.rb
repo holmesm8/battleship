@@ -4,6 +4,7 @@ require './lib/cell'
 
 class Game
 
+
   def initialize
     @computer_board = Board.new
     @player_board = Board.new
@@ -31,7 +32,7 @@ class Game
        puts "Enter the squares for the Cruiser (3 spaces):"
 
       print ">"
-      pi = gets.chomp.to_str.upcase.split(" ")
+      pi = gets.chomp.upcase.split(" ")
 
       else pi.to_str.downcase == "q"
        puts "GOODBYE"
@@ -49,10 +50,10 @@ class Game
               puts "Invalid coordinates, please try again."
               # require "pry"; binding.pry
               puts ">"
-              pi = gets.chomp
+              pi = gets.chomp.upcase.split(" ")
               coordinates = pi
               coordinates = pi.map do |coord|
-                break if coord.valid_coordinate?(coordinates) && coord.valid_placement?(@cruiser_player, coordinates)
+                break if @player_board.valid_coordinate?(coord) && @player_board.valid_placement?(@cruiser_player, coordinates)
             end
           end
             @player_board.place(@cruiser_player, coordinates)
