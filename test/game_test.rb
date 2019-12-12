@@ -9,21 +9,24 @@ class GameTest < Minitest::Test
 
   def setup
     @game = Game.new
-    @computer_board = Board.new
-    @player_board = Board.new
-    @cruiser_computer = Ship.new("Cruiser", 3)
-    @submarine_computer = Ship.new("Submarine", 2)
-    @cruiser_player = Ship.new("Cruiser", 3)
-    @submarine_player = Ship.new("Submarine", 2)
+    @game.initialize_new_game
+    # @computer_board = Board.new
+    # @player_board = Board.new
+    # @cruiser_computer = Ship.new("Cruiser", 3)
+    # @submarine_computer = Ship.new("Submarine", 2)
+    # @cruiser_player = Ship.new("Cruiser", 3)
+    # @submarine_player = Ship.new("Submarine", 2)
   end
 
   def test_it_exists
-
+skip
     assert_instance_of Game, @game
   end
 
   def test_it_starts
-    assert @game.welcome
+
+   @game.welcome
+   @game.gameplay
     # assert @game.user_place_ships(@cruiser_player.length)
 
   end
