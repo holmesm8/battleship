@@ -3,6 +3,7 @@ require './lib/ship'
 require './lib/cell'
 
 class Game
+  attr_reader :computer_board, :player_board
 
   def initialize_new_game
     @computer_board = Board.new
@@ -72,6 +73,7 @@ class Game
     game_over_check?
     initialize_new_game
     welcome
+    gameplay
   end
 
   def place_computer_shot
